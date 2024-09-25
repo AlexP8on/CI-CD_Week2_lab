@@ -22,4 +22,35 @@ public class Week2Lab {
     {
         return "Your name is " + name +" and you are " + age + " years old ";
     }
+    @GetMapping("/calculate")
+    public String calculate(@RequestParam int num1,@RequestParam int num2,@RequestParam String operation)
+    {
+        float ans;
+        switch (operation)
+        {
+            case"add":
+                ans = num1 + num2;
+                break;
+            case"subtract":
+                ans = num1 - num2;
+                break;
+            case"divide":
+                if(num2==0)
+                {
+                    return "You cannot divide by zero";
+
+                }
+                else{
+                    ans = (float)num1/num2;
+                }
+                break;
+            case "multiply":
+                ans = num1*num2;
+                break;
+            default:
+                return "Default statement";
+        }
+        return "The answer is "+ Float.toString(ans);
+    }
+
 }
