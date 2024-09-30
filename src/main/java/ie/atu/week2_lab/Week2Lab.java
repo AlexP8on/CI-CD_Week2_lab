@@ -23,13 +23,16 @@ public class Week2Lab {
         return "Your name is " + name +" and you are " + age + " years old ";
     }
     @GetMapping("/calculate")
-    public String calculate(@RequestParam int num1,@RequestParam int num2,@RequestParam String operation)
+    public String calculate(@RequestParam float num1,@RequestParam float num2,@RequestParam String operation)
     {
         float ans;
+        String operationSum;
         switch (operation)
         {
             case"add":
+                operationSum ="add";
                 ans = num1 + num2;
+
                 break;
             case"subtract":
                 ans = num1 - num2;
@@ -50,7 +53,7 @@ public class Week2Lab {
             default:
                 return "Default statement";
         }
-        return "The answer is "+ Float.toString(ans);
+        return "{\"operation:\" \"" + oerationSum + "\", \"total:\" " + ans + "}";
     }
 
 }
