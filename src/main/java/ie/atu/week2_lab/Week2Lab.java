@@ -2,7 +2,7 @@ package ie.atu.week2_lab;
 
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/person")
+
 @RestController
 public class Week2Lab {
 
@@ -30,14 +30,16 @@ public class Week2Lab {
         switch (operation)
         {
             case"add":
-                operationSum ="add";
+                operationSum ="Addition";
                 ans = num1 + num2;
 
                 break;
             case"subtract":
+                operationSum ="Subtraction";
                 ans = num1 - num2;
                 break;
             case"divide":
+                operationSum ="Division";
                 if(num2==0)
                 {
                     return "You cannot divide by zero";
@@ -48,12 +50,13 @@ public class Week2Lab {
                 }
                 break;
             case "multiply":
+                operationSum = "Multiplication";
                 ans = num1*num2;
                 break;
             default:
                 return "Default statement";
         }
-        return "{\"operation:\" \"" + oerationSum + "\", \"total:\" " + ans + "}";
+        return "{operation: " + operationSum + ", total: " + ans + "}";
     }
 
 }
